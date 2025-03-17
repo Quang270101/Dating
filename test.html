@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dating with me</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            margin-top: 50px;
+        }
+        #Yes {
+            position: absolute;
+            top: 30%;
+            left: 49%;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        #Yes:hover {
+            transform: scale(1.2);
+            background-color: #218838;
+        }
+        #No {
+            transition: left 1s ease-in-out, top 1s ease-in-out;
+            position: absolute;
+            top: 30%;
+            left: 45%;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #message {
+            width: 100%; /* Đảm bảo căn giữa theo chiều ngang */
+            text-align: center; /* Căn giữa nội dung */
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+            font-weight: bold;
+        }
+        #birthdayVideo {
+        display: none;
+        position: absolute;
+        left: 40%;
+        top: 40%;
+        width: 90%; /* Đảm bảo video không quá to */
+        height: 40%;
+        max-width: 300px; /* Giới hạn chiều rộng tối đa */
+        }
+        #message-container {
+        display: flex;
+        flex-direction: column; /* Sắp xếp theo chiều dọc */
+        align-items: center; /* Căn giữa nội dung */
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        text-align: left; /* Căn lề trái */
+        width: 300px; /* Điều chỉnh độ rộng theo ý */
+        height: 20%;
+        }
+        #introContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 100px;
+        }
+
+        #introText {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 15px; /* Giảm khoảng cách giữa chữ và nút */
+        }
+
+    </style>
+</head>
+<body>
+    <div id="introContainer">
+        <p id="introText">Bạn có muốn hẹn hò với tôi không? 💖</p>
+        <button id="No">No</button>
+        <button id="Yes">Yes</button>
+    </div>    
+    <div class="container">
+        <div id="message-container" style="display: none;">
+            Chúc mừng sinh nhật công chúa! 🎉🎂 <br>
+            Cảm ơn công chúa rất nhìu vì đã đồng ý tham gia buổi hẹn hò này💖<br>
+            Địa điểm hẹn hò của chúng ta sẽ là:💖<br>
+            Pizza 4'P Aeon Mall Long Biên <br>
+            Ta sẽ đón nàng vào lúc 18h15 ngày 19/03 <br>
+            Nàng chỉ việc lên đồ thật đẹp và chờ ta đến đón nhé😘😘
+        </div>
+        <video id="birthdayVideo" width="400" controls style="display: none;">
+            <source src="Vợ đẹp.mp4" type="video/mp4">
+        </video>
+    </div>
+    <script>
+        const noButton = document.getElementById('No');
+        const yesButton = document.getElementById('Yes');
+
+        noButton.addEventListener('mouseover', function() {
+            const maxX = window.innerWidth - noButton.offsetWidth;
+            const maxY = window.innerHeight - noButton.offsetHeight;
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        });
+
+        yesButton.addEventListener('click', function() {
+            document.getElementById('message-container').style.display = "block";
+            document.getElementById('birthdayVideo').style.display = "block";
+            document.getElementById('introText').style.display = "none";
+                // Ẩn hai nút sau khi bấm "Yes"
+            yesButton.style.display = "none";
+            noButton.style.display = "none";
+        });
+    </script>
+</body>
+</html>
